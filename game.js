@@ -190,14 +190,16 @@ function checkCollision(b, ps){
 	var did_collide = false;
 
 	// console.log(ps, b);
-	if (b.pos.x+b.pos.width >= ps[1].pos.x-10){
+	if (b.pos.x+b.pos.width >= ps[1].pos.x-10 && b.dir.x>=0){
 		// console.log("CLOSE");
 		if (b.pos.y >= ps[1].pos.y && b.pos.y+b.pos.height <= ps[1].pos.y+ps[1].pos.height){
+			b.pos.x = ps[1].pos.x-b.pos.width;
 			did_collide = true;
 		}
-	} else if (b.pos.x < ps[0].pos.x+ps[0].pos.width+10){
+	} else if (b.pos.x < ps[0].pos.x+ps[0].pos.width+10 && b.dir.x<=0){
 		// console.log("CLOSE");
 		if (b.pos.y >= ps[0].pos.y && b.pos.y+b.pos.height <= ps[0].pos.y+ps[0].pos.height){
+			b.pos.x = ps[0].pos.x+ps[0].pos.width;
 			did_collide = true;
 		}
 	}
