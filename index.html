@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Pong</title>
+
+	<!-- JS -->
+	<!-- EXTERNAL -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<!-- mine -->
+	<script type="text/javascript" src="game.js"></script>
+	<script>
+		$('document').ready(function(){
+			var w = new World('#world', 640, 480);
+			w.init();
+
+			setInterval(function(){
+				w.gameLoop();
+			}, 20);
+		});
+	</script>
+</head>
+<body>
+	<div id="world"></div>
+</body>
+</html>
